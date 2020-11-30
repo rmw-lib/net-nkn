@@ -25,7 +25,7 @@ export default (conn, addr, url, out)=>
               offset
             ]
           ]
-          responseTimeout:60000
+          responseTimeout:30000
         )
         break
       catch err
