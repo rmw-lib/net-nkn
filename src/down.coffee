@@ -16,13 +16,17 @@ export default (conn, addr, url, out)=>
     while 1
       try
         console.log url, offset
-        buf = await conn.send addr, Buffer.concat [
-          FLAG_URL
-          pack [
-            url
-            offset
+        buf = await conn.send(
+          addr
+          Buffer.concat [
+            FLAG_URL
+            pack [
+              url
+              offset
+            ]
           ]
-        ]
+          responseTimeout:60000
+        )
         break
       catch err
         console.log err
